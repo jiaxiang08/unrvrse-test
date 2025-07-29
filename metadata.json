@@ -1,0 +1,6 @@
+{
+  "name": "INFP-T Strategic Toolkit",
+  "description": "A web application that acts as a personal development hub for an INFP-T, leveraging the Gemini API for analysis, brainstorming, and strategic planning.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}

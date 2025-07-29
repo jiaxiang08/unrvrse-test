@@ -1,0 +1,398 @@
+:root {
+  /* Light Theme Variables */
+  --background-dark: #f0f2f5;
+  --background-light: #ffffff;
+  --background-lighter: #f9f9f9;
+  --primary-accent: #6c5ce7;
+  --primary-accent-hover: #5a4cdb;
+  --secondary-accent: #a0a0a0;
+  --secondary-accent-hover: #808080;
+  --success-color: #2ecc71;
+  --error-color: #e74c3c;
+  --text-primary: #1c1e21;
+  --text-secondary: #65676b;
+  --border-color: #ced0d4;
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'Roboto Mono', monospace;
+  --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --border-radius: 8px;
+}
+
+body.dark-theme {
+  /* Dark Theme Variables */
+  --background-dark: #121212;
+  --background-light: #1e1e1e;
+  --background-lighter: #2a2a2a;
+  --text-primary: #e0e0e0;
+  --text-secondary: #a0a0a0;
+  --border-color: #3a3a3a;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background-color: var(--background-dark);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#root {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* --- Layout --- */
+.app-container {
+  display: flex;
+  width: 100%;
+}
+
+.sidebar {
+  width: 280px;
+  background-color: var(--background-light);
+  border-right: 1px solid var(--border-color);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100%;
+  overflow-y: auto;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.main-content {
+  flex-grow: 1;
+  margin-left: 280px;
+  padding: 48px;
+  overflow-y: auto;
+}
+
+/* --- Sidebar --- */
+.sidebar-header {
+  margin-bottom: 32px;
+}
+.sidebar-header h1 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+}
+.sidebar-header p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav-group {
+    margin-top: 24px;
+}
+
+.nav-group-title {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+    padding-left: 12px;
+}
+
+.nav-button {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  text-align: left;
+  padding: 12px;
+  width: 100%;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  font-family: var(--font-sans);
+}
+
+.nav-button:hover {
+  background-color: var(--background-lighter);
+  color: var(--text-primary);
+}
+
+.nav-button.active {
+  background-color: var(--primary-accent);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* --- Main Content --- */
+h2 {
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+p {
+  color: var(--text-secondary);
+  max-width: 70ch;
+  margin-bottom: 24px;
+}
+
+.content-card {
+  background-color: var(--background-light);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: var(--card-shadow);
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.content-card h3 {
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+}
+
+/* --- Forms & Controls --- */
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: var(--text-secondary);
+}
+
+.text-input, .text-area {
+  width: 100%;
+  background-color: var(--background-dark);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 12px;
+  font-size: 1rem;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  transition: border-color 0.2s, background-color 0.3s, color 0.3s;
+}
+
+.text-area {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.text-input:focus, .text-area:focus {
+  outline: none;
+  border-color: var(--primary-accent);
+}
+
+.submit-button {
+  background-color: var(--primary-accent);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  padding: 12px 24px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.submit-button:hover:not(:disabled) {
+  background-color: var(--primary-accent-hover);
+}
+
+.submit-button:disabled {
+  background-color: var(--background-lighter);
+  color: var(--text-secondary);
+  cursor: not-allowed;
+}
+
+.secondary-button {
+  background-color: transparent;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid var(--border-color);
+  padding: 8px 16px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.secondary-button:hover:not(:disabled) {
+  background-color: var(--background-lighter);
+  color: var(--text-primary);
+  border-color: var(--secondary-accent);
+}
+
+.secondary-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.secondary-button.success {
+  background-color: var(--success-color);
+  border-color: var(--success-color);
+  color: #fff;
+}
+.secondary-button.error {
+  background-color: var(--error-color);
+  border-color: var(--error-color);
+  color: #fff;
+}
+
+
+/* --- AI Response & Loading --- */
+.ai-response-container {
+  margin-top: 32px;
+}
+.ai-response {
+  padding: 24px;
+  background-color: var(--background-light);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.ai-response h3 {
+    font-size: 1.1rem;
+    color: var(--primary-accent);
+    margin-bottom: 1rem;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+}
+
+.ai-response p, .ai-response li {
+    color: var(--text-primary);
+}
+
+.ai-response ul {
+    list-style-position: inside;
+    padding-left: 8px;
+}
+.ai-response ul li {
+    margin-bottom: 0.5em;
+}
+
+.response-actions {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+}
+
+.loading-spinner {
+  border: 2px solid var(--text-secondary);
+  border-top: 2px solid var(--primary-accent);
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: spin 1s linear infinite;
+}
+
+.loading-indicator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    gap: 16px;
+    color: var(--text-secondary);
+}
+.loading-indicator .spinner-large {
+    width: 32px;
+    height: 32px;
+    border-width: 3px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* --- Specific Component Styles --- */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.hat-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.hat-button {
+    flex-grow: 1;
+    padding: 16px;
+    font-size: 1rem;
+    font-weight: 500;
+    border: 1px solid var(--border-color);
+    background-color: var(--background-lighter);
+    color: var(--text-primary);
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    transition: all 0.2s ease;
+}
+
+.hat-button:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary-accent);
+}
+
+.hat-button.active {
+    background-color: var(--primary-accent);
+    color: white;
+    border-color: var(--primary-accent);
+}
+
+.clickable-card {
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.clickable-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Telegram Specific --- */
+body.telegram-app .submit-button {
+    display: none;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .main-content {
+    margin-left: 0;
+    padding: 24px;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+}

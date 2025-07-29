@@ -1,0 +1,12 @@
+
+{
+  "name": "infp-t-strategic-toolkit",
+  "version": "1.0.0",
+  "description": "A personal development hub for an INFP-T, leveraging the Gemini API.",
+  "type": "module",
+  "dependencies": {
+    "@google/genai": "^1.11.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
